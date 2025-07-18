@@ -3,29 +3,28 @@
 (function() {
     'use strict';
     
-    // Keywords to filter out (case insensitive)
+    // Keywords to filter out (insensitive case for insensitive posts))
     const filteredKeywords = [
         'game changer',
-        'swarm', // Test, by going to https://www.linkedin.com/feed/update/urn:li:activity:7351115423532109825/ , Adrians post, mentioning "swarm" should be hidden
+        'swarm', // Test, using https://www.linkedin.com/feed/update/urn:li:activity:7351115423532109825/ , Adrians post, mentioning "swarm" should be hidden
         'game-changer',
         'gamechanger'
     ];
-    
-    // Function to check if text contains filtered keywords
+
+    // Find mofos
     function containsFilteredKeywords(text) {
         const lowerText = text.toLowerCase();
         return filteredKeywords.some(keyword => lowerText.includes(keyword));
     }
     
-    // Function to hide a post
+    // Hide mofos
     function hidePost(postElement) {
         postElement.style.display = 'none';
         console.log('Hidden post containing filtered keyword');
     }
     
-    // Function to filter posts
+    // Filter mofos
     function filterPosts() {
-        // LinkedIn post selectors (these may need updates if LinkedIn changes their structure)
         const postSelectors = [
             'div[data-id^="urn:li:activity"]',
             '.feed-shared-update-v2',
@@ -37,18 +36,14 @@
             const posts = document.querySelectorAll(selector);
             
             posts.forEach(post => {
-                // Skip if already processed
                 if (post.hasAttribute('data-filtered-checked')) {
                     return;
                 }
-                
-                // Mark as processed
                 post.setAttribute('data-filtered-checked', 'true');
                 
-                // Get post text content
                 const postText = post.textContent || post.innerText || '';
-                
-                // Check if post contains filtered keywords
+
+                // Has mofo
                 if (containsFilteredKeywords(postText)) {
                     hidePost(post);
                 }
@@ -59,7 +54,7 @@
     // Initial filter
     filterPosts();
     
-    // Create observer for new posts loaded dynamically
+    // Yell, if you find mofo
     const observer = new MutationObserver(function(mutations) {
         let shouldFilter = false;
         
@@ -75,19 +70,19 @@
         });
         
         if (shouldFilter) {
-            // Debounce filtering to avoid excessive calls
+            // Debounce mofo
             clearTimeout(window.filterTimeout);
             window.filterTimeout = setTimeout(filterPosts, 100);
         }
     });
     
-    // Start observing
+    // observe mofos
     observer.observe(document.body, {
         childList: true,
         subtree: true
     });
     
-    // Also filter when scrolling (in case posts are lazy loaded)
+    // Filter when scrolling (in case posts are lazy loaded)
     let scrollTimeout;
     window.addEventListener('scroll', function() {
         clearTimeout(scrollTimeout);

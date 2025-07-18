@@ -3,7 +3,8 @@
   "name": "LinkedIn Game Changer Filter",
   "version": "1.0",
   "description": "Removes LinkedIn posts containing 'game changer' from your feed",
-  
+  "homepage_url": "https://github.com/micklove/li-game-changer",
+
   "permissions": [
     "activeTab"
   ],
