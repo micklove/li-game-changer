@@ -1,8 +1,9 @@
 # LinkedIn Feed Filter
 Chrome extension cleans up LinkedIn feed by hiding posts containing "game changer."
 
-Requested by Rowan...
+Requested by [Rowan](https://www.linkedin.com/posts/rowanu_anyone-know-how-to-mute-the-words-game-changer-activity-7351434152568631296-2em4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAACA3ywBoXg3hCY_FrhMz0_RaiKumR6AU0A)...
 ![Rowan](rowan.png)
+(nb: If this plugin is enabled... you won't see that post 🤯)
 
 ## Features
 
